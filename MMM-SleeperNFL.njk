@@ -1,0 +1,45 @@
+<header>
+    {{leagueDetails.leagueName}} {{mapping[leagueDetails.leagueStatus]}} Week {{week}}
+</header>
+{% if not matchupDetails %}
+    <div class="dimmed light">{{ "LOADING" | translate }}</div>
+{% else %}
+    <table display="flex" class="table {{ config.tableSize }}">
+        <thead>
+            <tr>
+                <img width="50" height="50" src='https://sleepercdn.com/avatars/thumbs/{{matchupDetails.userRoster.avatar}}'/>
+                <img width="50" height="50" src='https://sleepercdn.com/avatars/thumbs/{{matchupDetails.opponentRoster.avatar}}'/>
+            </tr>
+            <tr>
+                <th class="align-left" colspan="3">{{ matchupDetails.userRoster.display_name }}</th>
+                <th border-right="1px solid white">{{matchupDetails.userRoster.points}}</th>
+                <th>|</th>
+                <th>{{matchupDetails.opponentRoster.points}}</th>
+                <th class="align-right" colspan="3">{{ matchupDetails.opponentRoster.display_name }}</th>
+                
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for position in leagueDetails.rosterPositions %}
+                <tr class="row">
+                    <td class="align-left">
+                        <span>{{matchupDetails.userRoster.sortedNameList[loop.index0]}}</span>
+                    </td>
+                    <td class="align-right">
+                        <span>  {{matchupDetails.userRoster.sortedPointsList[loop.index0]}}  </span>
+                    </td>
+                    <td colspan="5">
+                        <span>  {{position}}  </span>
+                    </td>
+                    <td class="align-left">
+                        <span>  {{matchupDetails.opponentRoster.sortedPointsList[loop.index0]}}  </span>
+                    </td>
+                    <td class="align-right">
+                        <span>{{matchupDetails.opponentRoster.sortedNameList[loop.index0]}}</span>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}

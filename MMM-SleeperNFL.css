@@ -1,0 +1,50 @@
+@keyframes mmm-nfl-pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.MMM-SleeperNFL table {
+    border: 1px solid #ddd;
+}
+
+.MMM-SleeperNFL th {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  } 
+
+.MMM-SleeperNFL td {
+    border-bottom: 1px solid #ddd;
+  }
+
+.MMM-SleeperNFL .row {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.MMM-SleeperNFL .img {
+    width: 200;
+    height: 200;
+}
+
+.MMM-SleeperNFL .paddingBetweenCols td {
+    padding: 0 15px;
+  }
+
+.MMM-SleeperNFL .redzone {
+    animation: mmm-nfl-pulse 2s infinite;
+}
+
+.MMM-SleeperNFL .live {
+    font-size: 10px;
+    line-height: 15px;
+    display: block;
+}
+
+.MMM-SleeperNFL .ball-home {
+    margin-right: 10px;
+}
+
+.MMM-SleeperNFL .ball-away {
+    margin-left: 10px;
+}
