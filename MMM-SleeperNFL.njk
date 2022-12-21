@@ -4,39 +4,78 @@
 {% if not matchupDetails %}
     <div class="dimmed light">{{ "LOADING" | translate }}</div>
 {% else %}
-    <table display="flex" class="table {{ config.tableSize }}">
-        <thead>
-            <tr>
-                <img width="50" height="50" src='https://sleepercdn.com/avatars/thumbs/{{matchupDetails.userRoster.avatar}}'/>
-                <img width="50" height="50" src='https://sleepercdn.com/avatars/thumbs/{{matchupDetails.opponentRoster.avatar}}'/>
-            </tr>
-            <tr>
-                <th class="align-left" colspan="3">{{ matchupDetails.userRoster.display_name }}</th>
-                <th border-right="1px solid white">{{matchupDetails.userRoster.points}}</th>
-                <th>|</th>
-                <th>{{matchupDetails.opponentRoster.points}}</th>
-                <th class="align-right" colspan="3">{{ matchupDetails.opponentRoster.display_name }}</th>
-                
+    <div class="matchup-row">
+    <div class="user">
+        <div class="matchup-owner-item">
+            <div class="owner-container">
+                <div class="row space-between">
+                    <div class="row">
+                        <div class="avatar-container" style="border-color: rgb(247, 92, 141);">
+                            <div
+                                class="avatar"
+                                style="background-image: url('https://sleepercdn.com/avatars/thumbs/{{matchupDetails.userRoster.avatar}}'); width: 40px; height: 40px; flex: 0 0 40px; background-size: contain; position: relative;"
+                            ></div>
+                        </div>
+                        <div class="meta">
+                            <div class="team-name">{{ matchupDetails.userRoster.display_name }}</div>
+                            <div class="name">{{ matchupDetails.userRoster.display_name }}</div>
+                        </div>
+                    </div>
+                    <div class="roster-score-and-projection-matchup"><div class="score">{{matchupDetails.userRoster.points}}</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vs-label"><div class="label">VS</div></div>
+    <div class="user reverse">
+        <div class="matchup-owner-item">
+            <div class="owner-container">
+                <div class="row flip space-between">
+                    <div class="row flip">
+                        <div class="avatar-container flip" style="border-color: rgb(69, 230, 167);">
+                            <div
+                                class="avatar"
+                                style="background-image: url('https://sleepercdn.com/avatars/thumbs/{{matchupDetails.opponentRoster.avatar}}'); width: 40px; height: 40px; flex: 0 0 40px; background-size: contain; position: relative;"
+                            ></div>
+                        </div>
+                        <div class="meta flip">
+                            <div class="team-name" style="cursor: pointer;">{{ matchupDetails.opponentRoster.display_name }}</div>
+                            <div class="name" style="cursor: pointer;">{{ matchupDetails.opponentRoster.display_name }}</div>
+                        </div>
+                    </div>
+                    <div class="roster-score-and-projection-matchup flip"><div class="score">{{matchupDetails.opponentRoster.points}}</div></div>
+                </div>
+            </div>
 
-            </tr>
+        </div>
+    </div>
+</div>
+    <table class="table {{ config.tableSize }}">
+        <thead>
         </thead>
         <tbody>
             {% for position in leagueDetails.rosterPositions %}
-                <tr class="row">
-                    <td class="align-left">
-                        <span>{{matchupDetails.userRoster.sortedNameList[loop.index0]}}</span>
+                <tr>
+                    <td>
+                        <img width="30" height="30" src='https://sleepercdn.com/content/nfl/players/thumb/{{matchupDetails.userRoster.playerList[loop.index0]}}.jpg'/>
                     </td>
-                    <td class="align-right">
-                        <span>  {{matchupDetails.userRoster.sortedPointsList[loop.index0]}}  </span>
+                    <td>
+                        {{matchupDetails.userRoster.sortedNameList[loop.index0]}}
                     </td>
-                    <td colspan="5">
-                        <span>  {{position}}  </span>
+                    <td class="userScores">
+                        {{matchupDetails.userRoster.sortedPointsList[loop.index0]}}
                     </td>
-                    <td class="align-left">
-                        <span>  {{matchupDetails.opponentRoster.sortedPointsList[loop.index0]}}  </span>
+                    <td class="rosterPosition">
+                         {{position}}  
                     </td>
-                    <td class="align-right">
-                        <span>{{matchupDetails.opponentRoster.sortedNameList[loop.index0]}}</span>
+                    <td class="opponentScores">
+                        {{matchupDetails.opponentRoster.sortedPointsList[loop.index0]}}
+                    </td>
+                    <td>
+                        {{matchupDetails.opponentRoster.sortedNameList[loop.index0]}}
+                    </td>
+                    <td>
+                        <img width="30" height="30" src='https://sleepercdn.com/content/nfl/players/thumb/{{matchupDetails.opponentRoster.playerList[loop.index0]}}.jpg'/>
                     </td>
                 </tr>
             {% endfor %}

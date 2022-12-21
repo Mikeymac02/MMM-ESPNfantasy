@@ -81,43 +81,6 @@ Module.register('MMM-SleeperNFL', {
         };
     },
 
-    // getDom() {
-    //     var wrapper = document.createElement("div");
-
-    //     if (!this.loaded) {
-    //         wrapper.innerHTML = "Loading Fantasy ...";
-    //         wrapper.className = "dimmed light small";
-    //         return wrapper;
-    //     }
-
-    //     // The "table" as a div
-    //     var divTable = document.createElement("div");
-    //     divTable.className = "hvvtable small";
-
-    //     // The "table body" as a div
-    //     var divTableBody = document.createElement("div");
-    //     divTableBody.className = "hvvtablebody";
-    //     divTable.appendChild(divTableBody);
-
-    //     var divRow = document.createElement("div");
-    //         divRow.className = "hvvrow";
-    //         divTableBody.appendChild(divRow);
-        
-    //     var seasonCell = document.createElement("div");
-    //     seasonCell.innerHTML = this.nfl_state.season;
-    //     divRow.appendChild(seasonCell);
-
-    //     var season_typeCell = document.createElement("div");
-    //     season_typeCell.innerHTML = this.nfl_state.season_type + " season";
-    //     divRow.appendChild(season_typeCell);
-
-    //     var weekCell = document.createElement("div");
-    //     weekCell.innerHTML = "Week: " + this.nfl_state.week;
-    //     divRow.appendChild(weekCell);
-
-    //     return divTable;
-    // },
-
     addGlobals() {
         this.nunjucksEnvironment().addGlobal('includes', (array, item) => array.includes(item));
     },

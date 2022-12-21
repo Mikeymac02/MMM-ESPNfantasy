@@ -1,11 +1,6 @@
-@keyframes mmm-nfl-pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-}
 
 .MMM-SleeperNFL table {
-    border: 1px solid #ddd;
+    width: 100%;
 }
 
 .MMM-SleeperNFL th {
@@ -27,24 +22,304 @@
     height: 200;
 }
 
-.MMM-SleeperNFL .paddingBetweenCols td {
-    padding: 0 15px;
-  }
-
-.MMM-SleeperNFL .redzone {
-    animation: mmm-nfl-pulse 2s infinite;
-}
-
 .MMM-SleeperNFL .live {
     font-size: 10px;
     line-height: 15px;
     display: block;
 }
-
-.MMM-SleeperNFL .ball-home {
-    margin-right: 10px;
+.avatar-container {
+    line-height: 1;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #45e6a7;
+    border-radius: 50%;
+    z-index: 10;
+    background-color: #293042;
+    border-color: rgb(69, 230, 167);
 }
 
-.MMM-SleeperNFL .ball-away {
-    margin-left: 10px;
+.matchup-row {
+    line-height: 1;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 8px;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
 }
+
+.user {
+    line-height: 1;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    flex: 1 1 0;
+    width: 0;
+    margin-right: 4px;
+}
+
+.matchup-owner-item {
+    line-height: 1;
+    color: #fff;
+    margin: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background: rgba(163,187,211,0.05);
+    position: relative;
+    border-radius: 26px;
+    border: 1px solid rgba(58,70,91,0.5);
+    flex-grow: 1;
+}
+
+.owner-container {
+    line-height: 1;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    flex-grow: 1;
+    position: relative;
+}
+
+.space-between {
+    line-height: 1;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.row {
+    line-height: 1;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.avatar {
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-style: inherit;
+    font-family: inherit;
+    vertical-align: baseline;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 300;
+    font-size: 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("https://sleepercdn.com/uploads/65f4fa5c185ad683ae82b014104e57e7");
+    width: 30px;
+    height: 30px;
+    flex: 30px;
+    background-size: contain;
+    position: relative;
+}
+
+.meta {
+    line-height: 1;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    font-family: 'Inter';
+    margin-left: 8px;
+}
+
+.team-name {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-style: inherit;
+    vertical-align: baseline;
+    font-family: 'Inter';
+    font-weight: 500;
+    margin-bottom: 8px;
+    margin-top: 4px;
+    font-size: 10px;
+    color: #a3bbd3;
+    line-height: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 80px;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.name {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-style: inherit;
+    font-family: inherit;
+    vertical-align: baseline;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 4px;
+    color: #fff;
+    line-height: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 80px;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.roster-score-and-projection-matchup {
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-style: inherit;
+    vertical-align: baseline;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    margin-right: 6px;
+}
+
+.score {
+    line-height: 1;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    vertical-align: center;
+    font-size: 12px;
+}
+
+.vs-label {
+    line-height: 1;
+    color: #fff;
+    cursor: pointer;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    display: flex;
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    padding: 4px;
+    border-radius: 32px;
+    align-items: center;
+    justify-content: center;
+    background-color: #293042;
+    z-index: 99;
+}
+
+.label {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-style: inherit;
+    font-family: inherit;
+    vertical-align: baseline;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 30px;
+    text-align: center;
+    position: absolute;
+    color: #606f8c;
+    font-size: 14px;
+    font-weight: 800;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1;
+}
+
+.rosterPosition { text-align: center; padding-left: 2em; padding-right: 2em; }
+.userScores { text-align: right; padding-left: 1em; }
+.opponentScores { text-align: left; padding-right: 1em; }
