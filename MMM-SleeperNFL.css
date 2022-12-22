@@ -217,7 +217,6 @@
     white-space: nowrap;
     max-width: 80px;
     text-overflow: ellipsis;
-    cursor: pointer;
 }
 
 .name {
@@ -237,7 +236,6 @@
     white-space: nowrap;
     max-width: 80px;
     text-overflow: ellipsis;
-    cursor: pointer;
 }
 
 .roster-score-and-projection-matchup {
@@ -275,7 +273,6 @@
 .vs-label {
     line-height: 1;
     color: #fff;
-    cursor: pointer;
     margin: 0;
     border: 0;
     outline: 0;
@@ -297,7 +294,6 @@
 }
 
 .label {
-    cursor: pointer;
     margin: 0;
     padding: 0;
     border: 0;
@@ -320,6 +316,61 @@
     z-index: 1;
 }
 
-.rosterPosition { text-align: center; padding-left: 2em; padding-right: 2em; }
+.rosterPosition { 
+    text-align: center; 
+    padding-left: 1em; 
+    padding-right: 1em; 
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+.rosterPositionTitle {
+    background: rgba(163,187,211,0.05);
+    border: 1px solid rgba(58,70,91,0.5);
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    color: rgba(2, 32, 71, 1);
+}
+
+.QB {
+    background: rgba(255, 43, 109, 1);
+}
+
+.RB {
+    background: rgba(0, 206, 184, 1);
+}
+
+.WR {
+    background: rgba(88, 167, 255, 1);
+}
+
+.TE {
+    background: rgba(255, 174, 88, 1);
+}
+
+.K {
+    background: rgba(189, 102, 255, 1);
+}
+
+.FLEX {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.DEF {
+    background: rgba(121, 136, 161, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.BN {
+    background: rgba(163, 187, 211, 1);
+}
+
 .userScores { text-align: right; padding-left: 1em; }
-.opponentScores { text-align: left; padding-right: 1em; }
+.opponentScores { 
+    text-align: left; 
+    padding-right: 1em; 
+}

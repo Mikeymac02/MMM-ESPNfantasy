@@ -21,7 +21,13 @@
                             <div class="name">{{ matchupDetails.userRoster.display_name }}</div>
                         </div>
                     </div>
-                    <div class="roster-score-and-projection-matchup"><div class="score">{{matchupDetails.userRoster.points}}</div></div>
+                    <div class="roster-score-and-projection-matchup"><div class="score">
+                        {% if matchupDetails.userRoster.points == 0 %}
+                                --
+                            {%else%}
+                                {{matchupDetails.userRoster.points}}
+                            {%endif%}
+                        </div></div>
                 </div>
             </div>
         </div>
@@ -31,19 +37,27 @@
         <div class="matchup-owner-item">
             <div class="owner-container">
                 <div class="row flip space-between">
+                    <div class="roster-score-and-projection-matchup flip"><div class="score" style="margin-left: 8px;">
+                        {% if matchupDetails.opponentRoster.points == 0 %}
+                                --
+                            {%else%}
+                                {{matchupDetails.opponentRoster.points}}
+                            {%endif%}
+                        </div></div>
                     <div class="row flip">
+                        <div class="meta flip" style="margin-right: 8px;">
+                            <div class="team-name">{{ matchupDetails.opponentRoster.display_name }}</div>
+                            <div class="name">{{ matchupDetails.opponentRoster.display_name }}</div>
+                        </div>
                         <div class="avatar-container flip" style="border-color: rgb(69, 230, 167);">
                             <div
                                 class="avatar"
                                 style="background-image: url('https://sleepercdn.com/avatars/thumbs/{{matchupDetails.opponentRoster.avatar}}'); width: 40px; height: 40px; flex: 0 0 40px; background-size: contain; position: relative;"
                             ></div>
                         </div>
-                        <div class="meta flip">
-                            <div class="team-name" style="cursor: pointer;">{{ matchupDetails.opponentRoster.display_name }}</div>
-                            <div class="name" style="cursor: pointer;">{{ matchupDetails.opponentRoster.display_name }}</div>
-                        </div>
+                        
                     </div>
-                    <div class="roster-score-and-projection-matchup flip"><div class="score">{{matchupDetails.opponentRoster.points}}</div></div>
+                    
                 </div>
             </div>
 
@@ -55,29 +69,41 @@
         </thead>
         <tbody>
             {% for position in leagueDetails.rosterPositions %}
-                <tr>
-                    <td>
-                        <img width="30" height="30" src='https://sleepercdn.com/content/nfl/players/thumb/{{matchupDetails.userRoster.playerList[loop.index0]}}.jpg'/>
-                    </td>
-                    <td>
-                        {{matchupDetails.userRoster.sortedNameList[loop.index0]}}
-                    </td>
-                    <td class="userScores">
-                        {{matchupDetails.userRoster.sortedPointsList[loop.index0]}}
-                    </td>
-                    <td class="rosterPosition">
-                         {{position}}  
-                    </td>
-                    <td class="opponentScores">
-                        {{matchupDetails.opponentRoster.sortedPointsList[loop.index0]}}
-                    </td>
-                    <td>
-                        {{matchupDetails.opponentRoster.sortedNameList[loop.index0]}}
-                    </td>
-                    <td>
-                        <img width="30" height="30" src='https://sleepercdn.com/content/nfl/players/thumb/{{matchupDetails.opponentRoster.playerList[loop.index0]}}.jpg'/>
-                    </td>
-                </tr>
+                {% if (position == "BN" and config.showBench == false) %}
+                    <div/>
+                {%else%}
+                    <tr>
+                        <td>
+                            <img width="30" height="30" src='https://sleepercdn.com/content/nfl/players/thumb/{{matchupDetails.userRoster.playerList[loop.index0]}}.jpg'/>
+                        </td>
+                        <td>
+                                {{matchupDetails.userRoster.sortedNameList[loop.index0]}}
+                        </td>
+                        <td class="userScores">
+                            {% if matchupDetails.userRoster.sortedPointsList[loop.index0] == 0 %}
+                                --
+                            {%else%}
+                                {{matchupDetails.userRoster.sortedPointsList[loop.index0]}}
+                            {%endif%}
+                        </td>
+                        <td class="rosterPosition">
+                            <span class="rosterPosition rosterPositionTitle  {{position}}">{{position}}</span>
+                        </td>
+                        <td class="opponentScores">
+                            {% if matchupDetails.opponentRoster.sortedPointsList[loop.index0] == 0 %}
+                                --
+                            {%else%}
+                                {{matchupDetails.opponentRoster.sortedPointsList[loop.index0]}}
+                            {%endif%}
+                        </td>
+                        <td>
+                            {{matchupDetails.opponentRoster.sortedNameList[loop.index0]}}
+                        </td>
+                        <td>
+                            <img width="30" height="30" src='https://sleepercdn.com/content/nfl/players/thumb/{{matchupDetails.opponentRoster.playerList[loop.index0]}}.jpg'/>
+                        </td>
+                    </tr>
+                {% endif %}
             {% endfor %}
         </tbody>
     </table>
