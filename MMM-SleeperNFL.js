@@ -11,13 +11,12 @@ Module.register('MMM-SleeperNFL', {
         post_season: "Playoffs"
     },
 
-    matchupDetails: {
-        playerName: 'You',
-        playerPoints: 0.0,
-        playerRecord: '0-0',
-        opponentName: 'Them',
-        opponentPoints: 0.0,
-        opponentRecord: '0-0',
+    defaults: {
+        showBench: true,
+        showPlayerAvatars: true,
+        tableSize: 'small',
+        liveInterval: 30000,
+        inactiveInterval: 1000 * 60 * 5,
     },
 
     start() {
@@ -39,7 +38,7 @@ Module.register('MMM-SleeperNFL', {
     socketNotificationReceived(notification, payload) {
         if(notification === 'NFL_STATE') { //should only run like once per day?
             this.week = payload?.week;
-            this.season = payload?.season;
+            this.config.season = payload?.season;
             this.loaded = true;
             this.updateDom(100);
         } else if(notification === 'LEAGUE_DETAILS') { // once per day
@@ -53,7 +52,7 @@ Module.register('MMM-SleeperNFL', {
             console.log('matchup details received!');
             this.allPlayersList = payload;
         } 
-        this.updateDom(100);
+        this.updateDom();
     },
 
     getScripts() {
@@ -72,7 +71,7 @@ Module.register('MMM-SleeperNFL', {
         return {
             mapping: this.mapping,
             week: this.week,
-            season: this.season,
+            season: this.config.season,
             leagueName: this.leagueName,
             leagueStatus: this.leagueStatus,
             leagueDetails: this.leagueDetails,
@@ -82,7 +81,8 @@ Module.register('MMM-SleeperNFL', {
     },
 
     addGlobals() {
-        this.nunjucksEnvironment().addGlobal('includes', (array, item) => array.includes(item));
+        this.nunjucksEnvironment().addGlobal('isDefense', (playerId) => isNaN(playerId));
+        this.nunjucksEnvironment().addGlobal('toLowerCase', (team) => team.toLowerCase());
     },
 
     // addFilters() {

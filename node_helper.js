@@ -28,11 +28,12 @@ module.exports = NodeHelper.create({
             Log.info("config received!");
             this.LiveInterval = setInterval(() => {
                 this.fetchOnLiveState();
-            }, this.config.reloadInterval);
+            }, this.config.liveInterval); //every 30seconds
+            this.reloadLeagueInterval = setInterval(() => {
+                this.getLeagueData();
+            }, this.config.inactiveInterval);
             this.reloadNFLInterval = setInterval(() => {
                 this.getNFLState();
-                this.getESPNData();
-                this.getLeagueData();
                 this.getAllPlayerData();
             }, (1000 * 60 * 60 * 24)); //refresh NFL data every 24hrs
             await this.getNFLState();
@@ -67,6 +68,7 @@ module.exports = NodeHelper.create({
     async getNFLState() { //gets season data, like year, season status (regular or post) and current week
         try{
             const data = await SleeperAPI.getNFLState();
+            this.season = data?.season;
             const season = data?.season;
             const week = data?.week;
             this.week = data?.week;
@@ -80,7 +82,7 @@ module.exports = NodeHelper.create({
 
     async getLeagueData() { //gets league settings, which should only be needed once per day at most
         try{
-            const data = await SleeperAPI.getLeagueData(this.config.userId, this.config.season);
+            const data = await SleeperAPI.getLeagueData(this.config.userId, this.season);
             const leagueStatus = data?.leagueStatus;
             const rosterPositions = data?.rosterPositions;
             const leagueName = data?.leagueName;

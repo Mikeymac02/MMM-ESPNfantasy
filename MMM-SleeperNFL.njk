@@ -10,10 +10,8 @@
             <div class="owner-container">
                 <div class="row space-between">
                     <div class="row">
-                        <div class="avatar-container" style="border-color: rgb(247, 92, 141);">
-                            <div
-                                class="avatar"
-                                style="background-image: url('https://sleepercdn.com/avatars/thumbs/{{matchupDetails.userRoster.avatar}}'); width: 40px; height: 40px; flex: 0 0 40px; background-size: contain; position: relative;"
+                        <div class="avatar-container">
+                            <div class="avatar" style="background-image: url('https://sleepercdn.com/avatars/thumbs/{{matchupDetails.userRoster.avatar}}');"
                             ></div>
                         </div>
                         <div class="meta">
@@ -52,7 +50,7 @@
                         <div class="avatar-container flip" style="border-color: rgb(69, 230, 167);">
                             <div
                                 class="avatar"
-                                style="background-image: url('https://sleepercdn.com/avatars/thumbs/{{matchupDetails.opponentRoster.avatar}}'); width: 40px; height: 40px; flex: 0 0 40px; background-size: contain; position: relative;"
+                                style="background-image: url('https://sleepercdn.com/avatars/thumbs/{{matchupDetails.opponentRoster.avatar}}');"
                             ></div>
                         </div>
                         
@@ -73,9 +71,15 @@
                     <div/>
                 {%else%}
                     <tr>
+                        {% if config.showPlayerAvatars %}
                         <td>
-                            <img width="30" height="30" src='https://sleepercdn.com/content/nfl/players/thumb/{{matchupDetails.userRoster.playerList[loop.index0]}}.jpg'/>
+                            {% if isDefense(matchupDetails.userRoster.playerList[loop.index0]) %}
+                                <img height="30" style="vertical-align: middle" src='https://sleepercdn.com/images/team_logos/nfl/{{toLowerCase(matchupDetails.userRoster.playerList[loop.index0])}}.png'/>
+                            {% else %}
+                            <img height="30" src='https://sleepercdn.com/content/nfl/players/thumb/{{matchupDetails.userRoster.playerList[loop.index0]}}.jpg'/>
+                            {%endif%}
                         </td>
+                        {%endif%}
                         <td>
                                 {{matchupDetails.userRoster.sortedNameList[loop.index0]}}
                         </td>
@@ -99,9 +103,15 @@
                         <td>
                             {{matchupDetails.opponentRoster.sortedNameList[loop.index0]}}
                         </td>
+                        {% if config.showPlayerAvatars %}
                         <td>
-                            <img width="30" height="30" src='https://sleepercdn.com/content/nfl/players/thumb/{{matchupDetails.opponentRoster.playerList[loop.index0]}}.jpg'/>
+                            {% if isDefense(matchupDetails.opponentRoster.playerList[loop.index0]) %}
+                                <img height="30" style="vertical-align: middle;" src='https://sleepercdn.com/images/team_logos/nfl/{{toLowerCase(matchupDetails.opponentRoster.playerList[loop.index0])}}.png'/>
+                            {% else %}
+                            <img height="30" src='https://sleepercdn.com/content/nfl/players/thumb/{{matchupDetails.opponentRoster.playerList[loop.index0]}}.jpg'/>
+                            {%endif%}
                         </td>
+                        {%endif%}
                     </tr>
                 {% endif %}
             {% endfor %}

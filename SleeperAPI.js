@@ -71,7 +71,7 @@ async function getMatchupData(league_id, week, rosterId) { //gets matchup scores
     for(playerId of userRoster.playerList) {
         var playerObj = playerList[playerId];
         if(playerObj.position == "DEF") {
-            userRoster.sortedNameList.push(playerObj.team);
+            userRoster.sortedNameList.push(playerObj.last_name);
         } else{
             userRoster.sortedNameList.push(playerObj.first_name[0] + '. ' + playerObj.last_name);
         }
@@ -93,7 +93,7 @@ async function getMatchupData(league_id, week, rosterId) { //gets matchup scores
         for(playerId of opponentRoster.playerList) {
             var playerObj = playerList[playerId];
             if(playerObj.position == "DEF") {
-                opponentRoster.sortedNameList.push(playerObj.team);
+                opponentRoster.sortedNameList.push(playerObj.last_name);
             } else{
                 opponentRoster.sortedNameList.push(playerObj.first_name[0] + '. ' + playerObj.last_name);
             }
@@ -164,4 +164,4 @@ async function getAllPlayerData() {
     return;
 }
 
-module.exports = { getUserDetails, getNFLState, getLeagueData, getMatchupData, refreshPlayerData, getAllPlayerData, getAllRosterData };
+module.exports = { getUserDetails, getNFLState, getLeagueData, getMatchupData, refreshPlayerData, getAllRosterData };

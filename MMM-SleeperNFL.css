@@ -174,9 +174,9 @@
     background-repeat: no-repeat;
     background-position: center;
     background-image: url("https://sleepercdn.com/uploads/65f4fa5c185ad683ae82b014104e57e7");
-    width: 30px;
-    height: 30px;
-    flex: 30px;
+    width: 40px;
+    height: 40px;
+    flex: 40px;
     background-size: contain;
     position: relative;
 }
