@@ -369,8 +369,9 @@
     background: rgba(163, 187, 211, 1);
 }
 
-.userScores { text-align: right; padding-left: 1em; }
+.userScores { text-align: right; padding-left: 1em; color:rgba(255, 255, 255, 1) }
 .opponentScores { 
     text-align: left; 
     padding-right: 1em; 
+    color:rgba(255, 255, 255, 1);
 }
