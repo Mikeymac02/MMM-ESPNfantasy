@@ -1,7 +1,7 @@
 # MMM-SleeperNFL
 A Sleeper NFL module that displays your weekly fantasy matchup in a simple, easy to read table. 
 
-![](.github/screenshot.PNG) ![](.github/screenshot_with_bench.PNG)
+![](.github/screenshot_with_bench.PNG)
 
 ## Dependencies
 * An installation of [MagicMirror<sup>2</sup>](https://github.com/MichMich/MagicMirror)
@@ -18,15 +18,15 @@ A Sleeper NFL module that displays your weekly fantasy matchup in a simple, easy
         module: 'MMM-SleeperNFL',
         position: 'bottom_left',
         config: {
-				userId: '{{Sleeper user ID}}', //required
-				leagueId: '{{Sleeper league ID}}', //required
-				showBench: false, //optional, default: true
-                showPlayerAvatars: false, //optional, default: true
-                tableSize: 'xsmall', //optional, default: 'small' ('xsmall', 'small', 'medium')
-                liveInterval: 60000, //optional, default: 30000 (30 seconds)
-                inactiveInterval: 300000 //optional, default: 5minutes (in milliseconds)
+			userId: '{{Sleeper user ID}}', //required
+			leagueId: '{{Sleeper league ID}}', //required
+			showBench: false, //optional, default: true
+               	showPlayerAvatars: false, //optional, default: true
+                	tableSize: 'xsmall', //optional, default: 'small' ('xsmall', 'small', 'medium')
+                	liveInterval: 60000, //optional, default: 30000 (30 seconds)
+                	inactiveInterval: 300000 //optional, default: 5minutes (in milliseconds)
 			}
-    }
+    },
     ```
 
 ## Configuration options
@@ -38,5 +38,5 @@ A Sleeper NFL module that displays your weekly fantasy matchup in a simple, easy
 | `showBench` | `true` | Shows all bench players in your roster on the module (excluding Injured Reserve) |
 | `showPlayerAvatars` | `true` | Displays player avatars next to their names. Can sometimes cause issues if Sleeper doesn't have an avatar for a player (usually rookies or practice squad players) |
 | `tableSize` | `small` | Font size of table. Possible values: `'xsmall'`, `'small'`, `'medium'` (`'large'` and above will cause issues and likely take up the entire screen) |
-| `liveInterval` | `30000` (30 seconds) | How often the player scores update when there is a live NFL game. |
+| `liveInterval` | `30000` (30 seconds) | How often the module checks for a live game and updates player scores. |
 | `inactiveInterval` | `300000` (5 minutes) | How often the player rosters and league details update. This reload interval will fetch things like roster changes and team/league name changes. |
