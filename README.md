@@ -40,3 +40,9 @@ A Sleeper NFL module that displays your weekly fantasy matchup in a simple, easy
 | `tableSize` | `small` | Font size of table. Possible values: `'xsmall'`, `'small'`, `'medium'` (`'large'` and above will cause issues and likely take up the entire screen) |
 | `liveInterval` | `30000` (30 seconds) | How often the module checks for a live game and updates player scores. |
 | `inactiveInterval` | `300000` (5 minutes) | How often the player rosters and league details update. This reload interval will fetch things like roster changes and team/league name changes. |
+
+## Work in progress
+* Improve HTML formatting to make sure that the middle column (roster positions) is always centered in the table
+* Overhaul player `obj` to clean up the backend organization
+* Include custom team names, not just usernames
+* Add posession indicator to show if a player's team is currently on offense
