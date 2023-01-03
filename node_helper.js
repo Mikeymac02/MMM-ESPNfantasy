@@ -31,6 +31,7 @@ module.exports = NodeHelper.create({
             }, this.config.liveInterval); //every 30seconds
             this.reloadLeagueInterval = setInterval(() => {
                 this.getLeagueData();
+                this.getMatchupData();
             }, this.config.inactiveInterval);
             this.reloadNFLInterval = setInterval(() => {
                 this.getNFLState();
