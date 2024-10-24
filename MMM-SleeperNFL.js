@@ -1,7 +1,7 @@
 /* Magic Mirror
- * Module: MMM-Sleeper-NFL
+ * Module: MMM-ESPNfantasy
  *
- * By jackmeyer https://github.com/jackmeyer/MMM-SleeperNFL
+ * By Mikeymacc-2 https://github.com/Mikeymac02/MMM-ESPNfantasy
  * MIT Licensed.
  */
 
